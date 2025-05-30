@@ -4,6 +4,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 main{
     background-image: url("./assets/pokeball.jpg");
@@ -20,6 +21,9 @@ main{
     padding: 10px;
     margin:2px;
     border-radius: 10px;
+    text-align: center;
+    border:1px solid black;
+    
 }
 figure{
     width: 50%;
@@ -28,6 +32,11 @@ figure{
 #pokemonList{
     width: 50%;
     overflow-y: scroll;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 #selectedPokemonImg{
     background-color: white;
@@ -46,9 +55,11 @@ width: 15%;
     height: 20%;
     border-radius: 20px; 
     border:1px solid black;
-    
+    overflow-y: scroll;
+    padding: 10px;
 
 }
+
 figure{
     display: flex;
     flex-direction: column;
