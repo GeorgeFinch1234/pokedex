@@ -11,4 +11,48 @@ main{
     background-repeat: no-repeat;
     width: 400px;
     height: 600px;
+    display: flex;
+   flex-direction: row;
+}
+.pokemonListEntry{
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    margin:2px;
+    border-radius: 10px;
+}
+figure{
+    width: 50%;
+    margin: 0px;;
+}
+#pokemonList{
+    width: 50%;
+    overflow-y: scroll;
+}
+#selectedPokemonImg{
+    background-color: white;
+    width: 80%;
+    height: 30%;
+    border-radius: 20px; 
+    border:1px solid black;
+
+}
+#pokemonType{
+width: 15%;
+}
+#pokemonDescription{
+    background-color: white;
+    width: 80%;
+    height: 20%;
+    border-radius: 20px; 
+    border:1px solid black;
+    
+
+}
+figure{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
 }

@@ -16,7 +16,9 @@ async function getData() {
             console.log(element.name)
            pokemon = document.createElement(`p`)
            pokemon.textContent = (pokemonIndex  + ". " + element.name)
+           pokemon.classList.add("pokemonListEntry")
            pokemonContainer.appendChild(pokemon);
+           
             pokemonIndex = pokemonIndex +1;
         });
     })
