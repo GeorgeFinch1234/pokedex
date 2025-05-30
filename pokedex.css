@@ -14,6 +14,9 @@ main{
     height: 600px;
     display: flex;
    flex-direction: row;
+   border: 10px gray solid;
+   border-radius: 10px;
+   overflow: hidden;
 }
 .pokemonListEntry{
     background-color: white;
@@ -36,6 +39,7 @@ figure{
     padding: 10px;
     display: flex;
     flex-direction: column;
+    
 
 }
 #selectedPokemonImg{
@@ -48,6 +52,16 @@ figure{
 }
 #pokemonType{
 width: 15%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+gap:10px;
+}
+#pokemonType >*{
+padding: 10px;
+border-radius: 20px;
+
 }
 #pokemonDescription{
     background-color: white;
@@ -66,4 +80,98 @@ figure{
     justify-content: center;
     align-items: center;
     gap:30px;
+}
+
+
+/*
+taken from https://github.com/ImKennyYip/Pokedex/blob/master/pokedex.css
+*/
+.normal {
+    background-color: beige;
+    color: black;
+}
+
+.fire {
+    background-color: orange;
+    color: white;
+}
+
+.grass {
+    background-color: green;
+    color: white;
+}
+
+.water {
+    background-color: blue;
+    color: white;
+}
+
+.ice {
+    background-color: lightblue;
+    color: black;
+}
+
+.electric {
+    background-color: gold;
+    color: black;
+}
+
+.fighting {
+    background-color: darkred;
+    color: white;
+}
+
+.flying {
+    background-color: skyblue;
+    color: black;
+}
+
+.bug {
+    background-color: yellowgreen;
+    color: white;
+}
+
+.ghost {
+    background-color: purple;
+    color: white;
+}
+
+.rock {
+    background-color: sienna;
+    color: white;
+}
+
+.ground {
+    background-color: burlywood;
+    color: black;
+}
+
+.steel {
+    background-color: silver;
+    color: black;
+}
+
+.dark {
+    background-color: darkgray;
+    color: white;
+}
+
+.psychic {
+    background-color: palevioletred;
+    color: white;
+}
+
+.fairy {
+    background-color: pink;
+    color: black;
+}
+
+.dragon {
+    background-color: teal;
+    color: white;
+}
+
+.poison {
+    background-color: darkviolet;
+    color: white;
 }

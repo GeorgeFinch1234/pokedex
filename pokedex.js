@@ -42,9 +42,11 @@ async function displayPokemon(pokemonIndex){
         pokemonSprites.src=data.sprites.front_shiny
         pokemonSprites.alt="img of shinny " + data.name;
 data.types.forEach(type=>{
+    console.log(type)
 let typeToBeInputter = document.createElement("p")
-typeToBeInputter.textContent=type;
+typeToBeInputter.textContent=type.type.name;
     pokemonType.appendChild(typeToBeInputter)
+    typeToBeInputter.classList.add(type.type.name)
 
 
 })
