@@ -1,0 +1,14 @@
+body{
+    background-image: url("./assets/pokemon-bg.jpg");
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    background-image: url("./assets/pokeball.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 600px;
+}
