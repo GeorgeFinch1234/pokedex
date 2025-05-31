@@ -3,6 +3,7 @@ const pokemonContainer = document.getElementById("pokemonList")
 const pokemonSprites =document.getElementById("selectedPokemonImg")
 const pokemonInfo =document.getElementById("pokemonDescription")
 const pokemonType =document.getElementById("pokemonType")
+const SelectedPokemonContainer = document.getElementById("SelctedPokemoneInfo")
 let pokemonSelected;
 let pokemon; 
 
@@ -14,7 +15,7 @@ async function getData() {
     let pokemonIndex=1;
     fetch("https://pokeapi.co/api/v2/pokemon?limit=300&offset=0").then(Response => Response.json())
     .then(data=>{
-        console.log(data)
+        
         data.results.forEach(element => {
             //simply for the event listener so closure doesn't keep triggering same balue
             let currentIndex = pokemonIndex;
@@ -24,6 +25,17 @@ async function getData() {
            pokemonContainer.appendChild(pokemon);
            pokemon.addEventListener("click", ()=>{
             displayPokemon(currentIndex);
+           
+           for(const child of  SelectedPokemonContainer.children){
+            //so cant spam it and turn it off by clicking multiple pokemon else do toggle
+            if(child.id == "spinningWheele"){
+                child.classList.remove("hide")
+            }else{
+                child.classList.add("hide")
+            }
+           
+           }
+
            })
            
             pokemonIndex = pokemonIndex +1;
@@ -38,11 +50,26 @@ async function displayPokemon(pokemonIndex){
     pokemonType.innerHTML =""
     fetch("https://pokeapi.co/api/v2/pokemon/" +pokemonIndex).then(Response=>Response.json())
     .then(data=>{
-        console.log(data)
+        
         pokemonSprites.src=data.sprites.front_shiny
         pokemonSprites.alt="img of shinny " + data.name;
+
+        pokemonSprites.onload = () => {
+        for(const child of  SelectedPokemonContainer.children){
+            //so cant spam it and turn it off by clicking multiple pokemon else do toggle
+            if(child.id == "spinningWheele"){
+                child.classList.add("hide")
+            }else{
+                child.classList.remove("hide")
+            }
+           
+           }
+        }
+          
+
+
 data.types.forEach(type=>{
-    console.log(type)
+ 
 let typeToBeInputter = document.createElement("p")
 typeToBeInputter.textContent=type.type.name;
     pokemonType.appendChild(typeToBeInputter)
