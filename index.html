@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link rel="styleSheet" href="pokedex.css">
+    <link rel="stylesheet" href="pokedex.css">
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png">
 </head>
+
 <body>
-    
-<main>
-    
-    <figure>
-        <img id="selectedPokemonImg">
-        <div id="pokemonType"></div>
-        <p id="pokemonDescription"></p>
-    </figure>
-    <div id="pokemonList"></div>
-</main>
+
+    <main>
+
+        <figure id="SelectedPokemonInfo">
+            <img id="spinningWheel" src="./assets/pokeball.png" alt="an AI generated pokeball" class="hide">
+            <img id="selectedPokemonImg">
+            <div id="pokemonType"></div>
+            <p id="pokemonDescription"></p>
+        </figure>
+        <div id="pokemonList"></div>
+    </main>
     <script src="./pokedex.js"></script>
 </body>
+
 </html>
