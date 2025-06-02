@@ -10,7 +10,7 @@ body {
 }
 
 main {
-    background-image: url("./assets/pokeball.jpg");
+    background-image: url("./assets/pokeballBG.jpg");
     background-position: center;
     background-repeat: no-repeat;
     width: 400px;
