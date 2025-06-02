@@ -9,8 +9,12 @@ let pokemonSelected;
 //holder for each pokemon in the list
 let pokemon;
 
+
+
 //get the first 300 pokemon, change limit to get different amount.
 async function getData() {
+
+   
     let pokemonIndex = 1;
     fetch("https://pokeapi.co/api/v2/pokemon?limit=300&offset=0").then(Response => Response.json())
         .then(data => {
@@ -39,8 +43,13 @@ async function getData() {
                 })
 
                 pokemonIndex = pokemonIndex + 1;
-            });
+            }, );
+        }).catch(()=> {  pokemon = document.createElement(`p`)
+            pokemon.textContent = ("API not currently working, try again later")
+            pokemon.classList.add("pokemonListEntry")
+            pokemonContainer.appendChild(pokemon);
         })
+    
 
 }
 
@@ -67,6 +76,21 @@ async function displayPokemon(pokemonIndex) {
                 }
             }
 
+            pokemonSprites.onerror =() => {
+                pokemonSprites.alt = "error try again.";
+                for (const child of SelectedPokemonContainer.children) {
+                    //so cant spam it and turn it off by clicking multiple pokemon else do toggle
+                    if (child.id == "spinningWheel") {
+                        child.classList.add("hide")
+                    } else {
+                        child.classList.remove("hide")
+                    }
+
+                }
+            }
+            
+
+
 
 
             data.types.forEach(type => {
@@ -77,7 +101,8 @@ async function displayPokemon(pokemonIndex) {
                 typeToBeInputter.classList.add(type.type.name)
 
 
-            })
+            }
+             )
 
 
             fetch(data.species.url).then(Response => Response.json()).then(data => {
@@ -86,9 +111,29 @@ async function displayPokemon(pokemonIndex) {
 
 
 
+            }).catch(()=>{
+                pokemonInfo.textContent="API Issue try again"   
             })
+        }).catch(()=>{
+            for (const child of SelectedPokemonContainer.children) {
+                //so cant spam it and turn it off by clicking multiple pokemon else do toggle
+                if (child.id == "spinningWheel") {
+                    child.classList.add("hide")
+                } else {
+                    child.classList.remove("hide")
+                }
+
+            }
+            pokemonSprites.alt="API error, try again"
+            //fake one so it shows alt.
+            pokemonSprites.src ="error"
+            pokemonInfo.textContent="API Issue try again"   
         })
 
 }
+
+
+
+
 
 getData();
