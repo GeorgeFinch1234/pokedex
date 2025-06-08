@@ -1,6 +1,6 @@
 # Pokedex
 A website that represents a pokedex from pokemon. 
-## Table of conent
+## Table of content
 1. [Goal](#goal)
 2. [Technology](#technology)
 3. [Demo](#Demo)
