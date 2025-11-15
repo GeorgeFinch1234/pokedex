@@ -13,10 +13,14 @@
 <body>
     <p id="hamburgerMenu">&equiv;</p>
     <div id="menu" class="hide">
-        <label>Shiny</label>
-        <input type="checkbox">
-        <label>How many pokemon</label>
-        <input type="range">
+        <div class="menuOption">
+            <label>Shiny</label>
+            <input id="showShiny" type="checkbox" value="hideShiny">
+        </div>
+        <div class="menuOption">
+            <label>How many pokemon</label>
+            <input type="range">
+        </div>
     </div>
     <main>
         <figure id="SelectedPokemonInfo">

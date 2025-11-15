@@ -4,7 +4,7 @@ const pokemonSprites = document.getElementById("selectedPokemonImg")
 const pokemonInfo = document.getElementById("pokemonDescription")
 const pokemonType = document.getElementById("pokemonType")
 const SelectedPokemonContainer = document.getElementById("SelectedPokemonInfo")
-
+const showShiny = document.getElementById("showShiny")
 
 let pokemonSelected;
 //holder for each pokemon in the list
@@ -61,9 +61,14 @@ async function displayPokemon(pokemonIndex) {
     fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonIndex).then(Response => Response.json())
         .then(data => {
 
-            pokemonSprites.src = data.sprites.front_shiny
-            pokemonSprites.alt = "img of shiny " + data.name;
+                if(!showShiny.checked){
+                    pokemonSprites.src = data.sprites.front_default
+                    pokemonSprites.alt = "img of " + data.name;
+                }else{
 
+                    pokemonSprites.src = data.sprites.front_shiny
+                    pokemonSprites.alt = "img of shiny " + data.name;
+                }
             //so when img is loaded it show all the content
             pokemonSprites.onload = () => {
                 for (const child of SelectedPokemonContainer.children) {
