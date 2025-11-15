@@ -5,19 +5,23 @@ const pokemonInfo = document.getElementById("pokemonDescription")
 const pokemonType = document.getElementById("pokemonType")
 const SelectedPokemonContainer = document.getElementById("SelectedPokemonInfo")
 const showShiny = document.getElementById("showShiny")
-
+const limitHolder = document.getElementById("limitSet")
 let pokemonSelected;
 //holder for each pokemon in the list
 let pokemon;
 
+let limit = 300;
+limitHolder.addEventListener("change", ()=>{
+limit = limitHolder.value
 
+})
 
 //get the first 300 pokemon, change limit to get different amount.
 async function getData() {
 
-   
+   alert(limit)
     let pokemonIndex = 1;
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=300&offset=0").then(Response => Response.json())
+    fetch("https://pokeapi.co/api/v2/pokemon?limit="+limit+"&offset=0").then(Response => Response.json())
         .then(data => {
 
             data.results.forEach(element => {
@@ -153,7 +157,11 @@ document.getElementById("hamburgerMenu").addEventListener("click",()=>{
     menu
 })
 
+document.get
 
-
-
+document.getElementById("refresh").addEventListener("click",()=>{
+pokemonContainer.innerHTML=""
+    getData()
+    
+})
 
