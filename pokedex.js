@@ -5,6 +5,7 @@ const pokemonInfo = document.getElementById("pokemonDescription")
 const pokemonType = document.getElementById("pokemonType")
 const SelectedPokemonContainer = document.getElementById("SelectedPokemonInfo")
 
+
 let pokemonSelected;
 //holder for each pokemon in the list
 let pokemon;
@@ -137,3 +138,17 @@ async function displayPokemon(pokemonIndex) {
 
 
 getData();
+
+
+
+
+document.getElementById("hamburgerMenu").addEventListener("click",()=>{
+
+    document.getElementById("menu").classList.toggle("hide");
+    menu
+})
+
+
+
+
+
