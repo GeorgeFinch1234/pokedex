@@ -236,3 +236,16 @@ transition: 1s;
 }
 
 
+.menuOption{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:7px;
+padding-top: 30px;
+padding-bottom: 30px;
+font-size: 15px;
+}
+.menuOption p{
+    margin: 0;
+}

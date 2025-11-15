@@ -19,7 +19,6 @@ limit = limitHolder.value
 //get the first 300 pokemon, change limit to get different amount.
 async function getData() {
 
-   alert(limit)
     let pokemonIndex = 1;
     fetch("https://pokeapi.co/api/v2/pokemon?limit="+limit+"&offset=0").then(Response => Response.json())
         .then(data => {
@@ -162,6 +161,6 @@ document.get
 document.getElementById("refresh").addEventListener("click",()=>{
 pokemonContainer.innerHTML=""
     getData()
-    
+    document.getElementById("menu").classList.toggle("hide");
 })
 
