@@ -11,9 +11,21 @@
 </head>
 
 <body>
-
+    <p id="hamburgerMenu">&equiv;</p>
+    <div id="menu" class="hide">
+        <div class="menuOption">
+            <label>Set pokemon to Shiny</label>
+            <input id="showShiny" type="checkbox" value="hideShiny">
+        </div>
+        <div class="menuOption">
+            <label>Set amount of pokemon to show</label>
+            <input id="limitSet" type="number" max="1327" min="0">
+        </div>
+        <div class="menuOption">
+            <p id="refresh">refresh </p>
+        </div>
+    </div>
     <main>
-
         <figure id="SelectedPokemonInfo">
             <img id="spinningWheel" src="./assets/pokeballSpinner.png" alt="an AI generated pokeball" class="hide">
             <img id="selectedPokemonImg">

@@ -4,19 +4,23 @@ const pokemonSprites = document.getElementById("selectedPokemonImg")
 const pokemonInfo = document.getElementById("pokemonDescription")
 const pokemonType = document.getElementById("pokemonType")
 const SelectedPokemonContainer = document.getElementById("SelectedPokemonInfo")
-
+const showShiny = document.getElementById("showShiny")
+const limitHolder = document.getElementById("limitSet")
 let pokemonSelected;
 //holder for each pokemon in the list
 let pokemon;
 
+let limit = 300;
+limitHolder.addEventListener("change", ()=>{
+limit = limitHolder.value
 
+})
 
 //get the first 300 pokemon, change limit to get different amount.
 async function getData() {
 
-   
     let pokemonIndex = 1;
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=300&offset=0").then(Response => Response.json())
+    fetch("https://pokeapi.co/api/v2/pokemon?limit="+limit+"&offset=0").then(Response => Response.json())
         .then(data => {
 
             data.results.forEach(element => {
@@ -60,9 +64,14 @@ async function displayPokemon(pokemonIndex) {
     fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonIndex).then(Response => Response.json())
         .then(data => {
 
-            pokemonSprites.src = data.sprites.front_shiny
-            pokemonSprites.alt = "img of shiny " + data.name;
+                if(!showShiny.checked){
+                    pokemonSprites.src = data.sprites.front_default
+                    pokemonSprites.alt = "img of " + data.name;
+                }else{
 
+                    pokemonSprites.src = data.sprites.front_shiny
+                    pokemonSprites.alt = "img of shiny " + data.name;
+                }
             //so when img is loaded it show all the content
             pokemonSprites.onload = () => {
                 for (const child of SelectedPokemonContainer.children) {
@@ -137,3 +146,21 @@ async function displayPokemon(pokemonIndex) {
 
 
 getData();
+
+
+
+
+document.getElementById("hamburgerMenu").addEventListener("click",()=>{
+
+    document.getElementById("menu").classList.toggle("hide");
+    menu
+})
+
+document.get
+
+document.getElementById("refresh").addEventListener("click",()=>{
+pokemonContainer.innerHTML=""
+    getData()
+    document.getElementById("menu").classList.toggle("hide");
+})
+
