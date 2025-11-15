@@ -13,16 +13,25 @@
 <body>
     <p id="hamburgerMenu">&equiv;</p>
     <div id="menu" class="hide">
+        <div class="background">
         <div class="menuOption">
-            <label>Set pokemon to Shiny</label>
-            <input id="showShiny" type="checkbox" value="hideShiny">
+            <p>Set pokemon to Shiny</p>
+            <div class="grid">
+            <label for="shinyYes">Yes:</label>
+            <input id="shinyYes" class="showShiny" type="radio" value="show" name="shiny">
+         
+            
+            <label id="shinyNo">No:</label>
+            <input id="shinyNo" class="showShiny" type="radio" value="hide" name="shiny" checked="true">
+            </div>
         </div>
         <div class="menuOption">
-            <label>Set amount of pokemon to show</label>
-            <input id="limitSet" type="number" max="1327" min="0">
+            <label for="limitSet">Set amount of pokemon to show</label>
+            <input id="limitSet" type="number" max="1327" min="0"value="300" >
         </div>
         <div class="menuOption">
-            <p id="refresh">refresh </p>
+            <p id="refresh">Refresh</p>
+        </div>
         </div>
     </div>
     <main>

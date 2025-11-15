@@ -4,7 +4,7 @@ const pokemonSprites = document.getElementById("selectedPokemonImg")
 const pokemonInfo = document.getElementById("pokemonDescription")
 const pokemonType = document.getElementById("pokemonType")
 const SelectedPokemonContainer = document.getElementById("SelectedPokemonInfo")
-const showShiny = document.getElementById("showShiny")
+const showShiny = document.getElementById("shinyYes")
 const limitHolder = document.getElementById("limitSet")
 let pokemonSelected;
 //holder for each pokemon in the list
