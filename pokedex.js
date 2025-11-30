@@ -150,9 +150,8 @@ async function displayPokemon(pokemonIndex) {
 
 
 
-
+setHeight();
 getData();
-setHeight()
 
 function setHeight() {
     document.querySelector("body").style.height = window.innerWidth;
