@@ -165,7 +165,7 @@ document.getElementById("hamburgerMenu").addEventListener("click",()=>{
 
 document.get
 
-document.getElementById("refresh").addEventListener("click",()=>{
+document.getElementById("refreshContainer").addEventListener("click",()=>{
 pokemonContainer.innerHTML=""
     getData()
     document.getElementById("menu").classList.toggle("hide");
