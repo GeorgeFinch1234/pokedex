@@ -11,10 +11,7 @@ let pokemonSelected;
 let pokemon;
 
 let limit = 300;
-limitHolder.addEventListener("change", ()=>{
-limit = limitHolder.value
 
-})
 
 //get the first 300 pokemon, change limit to get different amount.
 async function getData() {
@@ -22,11 +19,8 @@ async function getData() {
 
 
 
-
-
-
     let pokemonIndex = 1;
-    fetch("https://pokeapi.co/api/v2/pokemon?limit="+limit+"&offset=0").then(Response => Response.json())
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=" + limit + "&offset=0").then(Response => Response.json())
         .then(data => {
 
             data.results.forEach(element => {
@@ -53,13 +47,14 @@ async function getData() {
                 })
 
                 pokemonIndex = pokemonIndex + 1;
-            }, );
-        }).catch(()=> {  pokemon = document.createElement(`p`)
+            },);
+        }).catch(() => {
+            pokemon = document.createElement(`p`)
             pokemon.textContent = ("API not currently working, try again later")
             pokemon.classList.add("pokemonListEntry")
             pokemonContainer.appendChild(pokemon);
         })
-    
+
 
 }
 
@@ -70,14 +65,14 @@ async function displayPokemon(pokemonIndex) {
     fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonIndex).then(Response => Response.json())
         .then(data => {
 
-                if(!showShiny.checked){
-                    pokemonSprites.src = data.sprites.front_default
-                    pokemonSprites.alt = "img of " + data.name;
-                }else{
+            if (!showShiny.checked) {
+                pokemonSprites.src = data.sprites.front_default
+                pokemonSprites.alt = "img of " + data.name;
+            } else {
 
-                    pokemonSprites.src = data.sprites.front_shiny
-                    pokemonSprites.alt = "img of shiny " + data.name;
-                }
+                pokemonSprites.src = data.sprites.front_shiny
+                pokemonSprites.alt = "img of shiny " + data.name;
+            }
             //so when img is loaded it show all the content
             pokemonSprites.onload = () => {
                 for (const child of SelectedPokemonContainer.children) {
@@ -91,7 +86,7 @@ async function displayPokemon(pokemonIndex) {
                 }
             }
 
-            pokemonSprites.onerror =() => {
+            pokemonSprites.onerror = () => {
                 pokemonSprites.alt = "error try again.";
                 for (const child of SelectedPokemonContainer.children) {
                     //so cant spam it and turn it off by clicking multiple pokemon else do toggle
@@ -103,7 +98,7 @@ async function displayPokemon(pokemonIndex) {
 
                 }
             }
-            
+
 
 
 
@@ -117,7 +112,7 @@ async function displayPokemon(pokemonIndex) {
 
 
             }
-             )
+            )
 
 
             fetch(data.species.url).then(Response => Response.json()).then(data => {
@@ -126,10 +121,10 @@ async function displayPokemon(pokemonIndex) {
 
 
 
-            }).catch(()=>{
-                pokemonInfo.textContent="API Issue try again"   
+            }).catch(() => {
+                pokemonInfo.textContent = "API Issue try again"
             })
-        }).catch(()=>{
+        }).catch(() => {
             for (const child of SelectedPokemonContainer.children) {
                 //so cant spam it and turn it off by clicking multiple pokemon else do toggle
                 if (child.id == "spinningWheel") {
@@ -139,10 +134,10 @@ async function displayPokemon(pokemonIndex) {
                 }
 
             }
-            pokemonSprites.alt="API error, try again"
+            pokemonSprites.alt = "API error, try again"
             //fake one so it shows alt.
-            pokemonSprites.src ="error"
-            pokemonInfo.textContent="API Issue try again"   
+            pokemonSprites.src = "error"
+            pokemonInfo.textContent = "API Issue try again"
         })
 
 }
@@ -157,17 +152,29 @@ function setHeight() {
     document.querySelector("body").style.height = window.innerWidth;
 }
 
-document.getElementById("hamburgerMenu").addEventListener("click",()=>{
+document.getElementById("hamburgerMenu").addEventListener("click", () => {
 
     document.getElementById("menu").classList.toggle("hide");
-    
+
 })
 
 document.get
 
-document.getElementById("refreshContainer").addEventListener("click",()=>{
-pokemonContainer.innerHTML=""
+document.getElementById("refreshContainer").addEventListener("click", () => {
+    
+     if( limitHolder.value>488 | limitHolder.value<1){
+        limitHolder.setCustomValidity("Value must between 488 and 1")
+    }else{
+        limitHolder.setCustomValidity("")
+        limit = limitHolder.value
+          pokemonContainer.innerHTML = ""
     getData()
     document.getElementById("menu").classList.toggle("hide");
+    }
+limitHolder.reportValidity();
+
+
+  
+
 })
 
